@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>nohawk</title>
+<meta name="description" content="nohawk | mooshroom | eleanor">
+<style>
+  :root {
+    --bg: #070707;
+    --fg: #d8dadf;
+    --dim: #7c818c;
+    --line: #3a3f4a;
+    --accent: #7ee0a8;
+    --accent-dim: #3f8f66;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); }
+  body {
+    margin: 0;
+    padding: 1rem;
+    font-family: "JetBrains Mono", "Fira Code", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--fg);
+  }
+  main { max-width: 42rem; margin: 0 auto; }
+
+  .topbar {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--dim);
+    font-size: 0.9rem;
+  }
+  .topbar a { color: var(--accent); }
+
+  .prompt { margin: 1rem 0 0.5rem; word-break: break-word; }
+  .prompt .user { color: var(--dim); }
+  .prompt .sym { color: var(--accent); }
+
+  .box {
+    position: relative;
+    border: 1px solid var(--line);
+    padding: 1.5rem 1rem 1rem;
+    margin-top: 1.1rem;
+  }
+  .box > .label {
+    position: absolute;
+    top: -0.8rem;
+    left: 0.75rem;
+    padding: 0 0.5rem;
+    background: var(--bg);
+    color: var(--accent);
+  }
+
+  .card { display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem; }
+  .avatar {
+    width: 6.5rem;
+    height: 6.5rem;
+    flex: none;
+    border: 2px solid var(--accent);
+    background: #111;
+    display: grid;
+    place-items: center;
+    font-size: 3rem;
+  }
+  .card h1 { margin: 0; font-size: 1.25rem; }
+  .card p { margin: 0; }
+  .dim { color: var(--dim); }
+
+  h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 1.25rem 0 0.75rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--fg);
+  }
+  h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  .names { list-style: none; margin: 0; padding: 0; }
+  .names li { display: flex; gap: 1rem; padding: 0.15rem 0; }
+  .names .k { width: 6.5rem; color: var(--dim); flex: none; }
+  .names .v { color: var(--accent); }
+
+  .socials { list-style: none; margin: 0.5rem 0 0; padding: 0; }
+  .socials li { display: flex; gap: 1rem; align-items: center; padding: 0.3rem 0; }
+  .socials svg { width: 1.75rem; height: 1.75rem; flex: none; fill: var(--fg); }
+  .socials .status { color: var(--dim); }
+
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:hover { color: #fff; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .cursor {
+    display: inline-block;
+    width: 0.6em;
+    height: 1.1em;
+    background: var(--accent);
+    vertical-align: text-bottom;
+    animation: blink 1.1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
+
+  footer { margin: 1.5rem 0 2rem; color: var(--dim); font-size: 0.85rem; }
+
+  @media (max-width: 420px) {
+    .card { flex-direction: column; align-items: flex-start; }
+    .names li { flex-direction: column; gap: 0; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <nav class="topbar" aria-label="Site">
+    <span>nohawk.ing.ng</span>
+    <span>|</span>
+    <a href="#socials">socials</a>
+  </nav>
+
+  <p class="prompt"><span class="user">root@nohawk</span><span class="sym">:~$</span> glow about_me.md</p>
+
+  <section class="box" aria-labelledby="about-title">
+    <span class="label" id="about-title">about_me.md</span>
+
+    <div class="card">
+      <div class="avatar" aria-hidden="true">🍄</div>
+      <div>
+        <h1>nohawk</h1>
+        <p>minecraft player</p>
+        <p class="dim">a.k.a. mooshroom, eleanor</p>
+      </div>
+    </div>
+
+    <h2>## names</h2>
+    <ul class="names">
+      <li><span class="k">discord</span><span class="v">mooshroom</span></li>
+      <li><span class="k">minecraft</span><span class="v">nohawk</span></li>
+      <li><span class="k">mmc</span><span class="v">eleanor</span></li>
+    </ul>
+  </section>
+
+  <p class="prompt" id="socials"><span class="user">root@nohawk</span><span class="sym">:~$</span> ./socials.sh</p>
+
+  <ul class="socials">
+    <li>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.2.5a18 18 0 0 1 4.4 1.6 15.7 15.7 0 0 0-15.2 0A18 18 0 0 1 8.8 3.5L8.6 3a19.8 19.8 0 0 0-4.9 1.4C.6 9 -.3 13.5.1 18a19.9 19.9 0 0 0 6 3l1.3-2.100c-.7-.3-1.400-.6-2-1l.5-.4a14.200 14.200 0 0 0 12.200 0l.5.400c-.6.400-1.300.700-2 1l1.300 2.100a19.900 19.900 0 0 0 6-3c.5-5.200-.8-9.700-3.600-13.600ZM8.300 15.300c-1.200 0-2.100-1.100-2.100-2.400s.9-2.400 2.100-2.400 2.100 1.100 2.100 2.400-.9 2.400-2.100 2.400Zm7.400 0c-1.200 0-2.100-1.100-2.100-2.400s.9-2.400 2.100-2.400 2.100 1.100 2.100 2.400-.9 2.400-2.100 2.400Z"/></svg>
+      <span>mooshroom <span class="status">[ discord ]</span></span>
+    </li>
+    <li>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h18v18H3V3Zm3 3v4h4V6H6Zm8 0v4h4V6h-4ZM10 10v4h4v-4h-4Zm-4 4v4h4v-4H6Zm8 0v4h4v-4h-4Z"/></svg>
+      <span>nohawk <span class="status">[ minecraft ]</span></span>
+    </li>
+    <li>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 2 7v10l10 5 10-5V7L12 2Zm0 2.200 7.200 3.600L12 11.400 4.800 7.800 12 4.200ZM4 9.400l7 3.500v7.200l-7-3.500V9.400Zm9 10.700v-7.200l7-3.500v7.200l-7 3.500Z"/></svg>
+      <span>eleanor <span class="status">[ mmc ]</span></span>
+    </li>
+  </ul>
+
+  <p class="prompt"><span class="user">root@nohawk</span><span class="sym">:~$</span> <span class="cursor" aria-hidden="true"></span></p>
+
+  <footer>nohawk.ing.ng</footer>
+
+</main>
+</body>
+</html>
