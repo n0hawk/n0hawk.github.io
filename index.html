@@ -67,13 +67,13 @@ main{padding:18px 12px 0}.ascii{font-size:clamp(19px,4.5vw,43px);line-height:1.0
     <section class="panel" id="socials">
       <div class="section-head"><span>socials.sh</span><span>external links</span></div>
       <div class="socials">
-        <a href="https://github.com/" target="_blank" rel="noreferrer">github</a>
-        <a href="https://discord.com/app" target="_blank" rel="noreferrer">discord</a>
+        <a href="https://github.com/n0hawk/" target="_blank" rel="noreferrer">github</a>
+        <a href="https://discord.com/users/1084280083616890982" target="_blank" rel="noreferrer">discord</a>
         <a href="https://reddit.com/" target="_blank" rel="noreferrer">reddit</a>
-        <a href="mailto:hello@example.com">email</a>
-        <a href="#about">about</a>
+        <a href="srsmsd26@gmail.com">email</a>
+        <a href="about.me/nohawk">about</a>
       </div>
-      <p class="badge-note">Edit these placeholder links in <code>index.html</code> to use your own profiles.</p>
+      <p class="badge-note"> Anything else? I guess not!</p>
     </section>
     <section class="panel" id="radio">
       <div class="radio">
@@ -122,7 +122,7 @@ main{padding:18px 12px 0}.ascii{font-size:clamp(19px,4.5vw,43px);line-height:1.0
         <a class="b88 b-d" href="https://theuselessweb.com/" target="_blank" rel="noopener noreferrer" title="Meme ad: click for nonsense">CLICK FOR NOTHING</a>
         <a class="b88 b-h b-a" href="https://neal.fun/" target="_blank" rel="noopener noreferrer" title="Meme ad: productivity killer">YOUR PRODUCTIVITY ↓</a>
       </div>
-      <p class="badge-note">Parody ads and old-web buttons — now clickable. External links open their destination; “YOUR AD HERE” leads to socials.</p>
+      <p class="badge-note">Just Chill O_o</p>
     </section>
   </main>
   <div class="footer"><span>last updated: <span id="updated"></span></span><span>made with ♡ and terminal</span></div>
@@ -132,7 +132,7 @@ const $=id=>document.getElementById(id);
 function tick(){const d=new Date();$('clock').textContent=d.toLocaleTimeString('en-GB',{hour12:false,timeZone:'Asia/Kolkata'});$('updated').textContent=d.toLocaleDateString('en-CA',{timeZone:'Asia/Kolkata'});}
 tick();setInterval(tick,1000);
 const wave=$('wave');for(let i=0;i<68;i++){const b=document.createElement('i');b.style.setProperty('--h',(5+(Math.abs(Math.sin(i*12.9898)*43758.5453)%1)*27)+'px');b.style.animationDelay=(-Math.random()*1.2)+'s';wave.appendChild(b);}
-// Local playlist: files are read by the browser only, never uploaded to a server.
+
 const audio=$('audioPlayer');let tracks=[{name:'Wicked Game.mp3',url:'Wicked%20Game.mp3'}],trackIndex=0,objectUrls=[];
 function showTrack(){if(!tracks.length){$('trackStatus').textContent='No tracks loaded — choose MP3 files above.';return;}const t=tracks[trackIndex];$('trackStatus').textContent=`${trackIndex+1}/${tracks.length} · ${t.name}`;document.querySelector('#radio h2 .muted').textContent=' / '+t.name.replace(/\.[^.]+$/,'').toUpperCase();}
 function loadTrack(index,autoplay=false){if(!tracks.length)return;trackIndex=(index+tracks.length)%tracks.length;audio.src=tracks[trackIndex].url;showTrack();if(autoplay)audio.play().then(()=>{ $('play').textContent='Ⅱ Pause';wave.classList.add('playing');}).catch(()=>{$('trackStatus').textContent='Tap Play to start · '+tracks[trackIndex].name;});}
